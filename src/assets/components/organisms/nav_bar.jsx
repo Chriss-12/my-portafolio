@@ -16,14 +16,14 @@ function NavBar() {
         <p>
           <a
             style={{ fontWeight: "bold", color: "#3A5A40" }}
-            onClick={() => navigateNavBar("/my-portafolio/")}
+            onClick={() => navigateNavBar("/")}
           >
             Chriss Sanjines
           </a>
         </p>
         <ul className="nav-bar__first-list-item">
           <li>
-            <a onClick={() => navigateNavBar("/my-portafolio/works")}>Works</a>
+            <a onClick={() => navigateNavBar("/works")}>Works</a>
           </li>
           <li>
             <a
@@ -76,7 +76,7 @@ function NavBar() {
       >
         <ul className="nav-bar__second-list">
           <li>
-            <a onClick={() => navigateNavBar("/my-portafolio/works")}>Works</a>
+            <a onClick={() => navigateNavBar("/works")}>Works</a>
           </li>
           <li>
             <a

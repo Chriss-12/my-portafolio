@@ -31,7 +31,7 @@ function ExtraInformationOrganisms() {
       <button
         type="button"
         className="my__portafolio"
-        onClick={() => navigate("/my-portafolio/works")}
+        onClick={() => navigate("/works")}
       >
         My Portafolio
       </button>
