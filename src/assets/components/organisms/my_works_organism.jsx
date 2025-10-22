@@ -3,6 +3,7 @@ import "../../styles/work_molecule.css";
 function MyWorksOrganism() {
   return (
     <div style={{ marginTop: "100px", marginBottom: "30px" }}>
+      {/* <div className="responsive"> */}
       <div
         className="responsive"
         style={{
