@@ -5,7 +5,7 @@ import { MyPortafolio } from "./assets/components/pages/my_portafolio";
 
 function App() {
   return (
-    <Router>
+    <Router basename="/my-portafolio">
       {/* Enlaces de navegación */}
       {/* <nav>
         <Link to="/my-portafolio">Ir a mi portafolio</Link>
@@ -13,8 +13,8 @@ function App() {
 
       {/* Definición de rutas */}
       <Routes>
-        <Route path="/my-portafolio/" element={<MainPage />} />
-        <Route path="/my-portafolio/works/" element={<MyPortafolio />} />
+        <Route path="/" element={<MainPage />} />
+        <Route path="/works/" element={<MyPortafolio />} />
       </Routes>
     </Router>
   );
