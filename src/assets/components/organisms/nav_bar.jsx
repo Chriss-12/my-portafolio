@@ -1,24 +1,29 @@
+import NavBarController from "../../controllers/nav_bar_controller";
 import useMenuController from "../../controllers/sw_show_menu";
 import { useTheme } from "../../controllers/useTheme";
 import "../../styles/main_nav_bar.css";
 function NavBar() {
   const { swLight, handleSwLight } = useTheme();
   const { open, toggleMenu } = useMenuController();
+  const { navigateNavBar } = NavBarController();
   return (
-    <nav className="main__nav-bar">
+    <nav className="main__nav-bar" style={{ zIndex: "100" }}>
       <div
         className={`nav-bar__first-list ${
           swLight ? "nav-bar__first-list--light" : "nav-bar__first-list--dark"
         }`}
       >
         <p>
-          <a href="#" style={{ fontWeight: "bold" }}>
+          <a
+            style={{ fontWeight: "bold", color: "#3A5A40" }}
+            onClick={() => navigateNavBar("/my-portafolio/")}
+          >
             Chriss Sanjines
           </a>
         </p>
         <ul className="nav-bar__first-list-item">
           <li>
-            <a href="#">Works</a>
+            <a onClick={() => navigateNavBar("/my-portafolio/works")}>Works</a>
           </li>
           <li>
             <a
@@ -53,7 +58,7 @@ function NavBar() {
         <div className="nav-bar__first-list-item">
           <button type="button" onClick={handleSwLight}>
             <img
-              src={!swLight ? "/images/sun.svg" : "/images/moon.svg"}
+              src={!swLight ? "images/sun.svg" : "images/moon.svg"}
               alt="Light Mood"
               className={!swLight ? "change-sw--light" : "change-sw--moon"}
             />
@@ -71,7 +76,7 @@ function NavBar() {
       >
         <ul className="nav-bar__second-list">
           <li>
-            <a href="#">Works</a>
+            <a onClick={() => navigateNavBar("/my-portafolio/works")}>Works</a>
           </li>
           <li>
             <a

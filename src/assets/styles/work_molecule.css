@@ -1,0 +1,30 @@
+@media screen and (max-width: 1959px) {
+  .responsive {
+    grid-template-columns: auto auto !important;
+    width: 40% !important;
+  }
+  .responsive-item {
+    width: 250px !important;
+  }
+}
+
+@media screen and (max-width: 1487px) {
+  .responsive {
+    width: 50% !important;
+    grid-template-columns: auto auto !important;
+  }
+  .responsive-item {
+    width: 250px !important;
+  }
+}
+
+@media screen and (max-width: 1129px) {
+  .responsive {
+    width: 95% !important;
+    grid-template-columns: auto auto !important;
+  }
+  .responsive-item {
+    width: 150px !important;
+    height: 250px !important;
+  }
+}

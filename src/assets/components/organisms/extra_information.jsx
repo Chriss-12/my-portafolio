@@ -1,5 +1,9 @@
+import MyPortafolioController from "../../controllers/my_portafolio_controller";
 import "../../styles/main_page.css";
 function ExtraInformationOrganisms() {
+  const myPortafolioController = MyPortafolioController();
+
+  const { handleClickSurvey, navigate } = myPortafolioController;
   return (
     <div className="extra_information__container">
       <div className="extra_information">
@@ -11,7 +15,7 @@ function ExtraInformationOrganisms() {
         </div>
         <img
           className="picture__profile"
-          src="/images/profile.png"
+          src="images/profile.png"
           alt="Foto de Perfil"
         />
       </div>
@@ -24,7 +28,11 @@ function ExtraInformationOrganisms() {
           Currently, I am living of my own product which is important to me.
         </p>
       </div>
-      <button type="button" className="my__portafolio">
+      <button
+        type="button"
+        className="my__portafolio"
+        onClick={() => navigate("/my-portafolio/works")}
+      >
         My Portafolio
       </button>
 
@@ -91,7 +99,6 @@ function ExtraInformationOrganisms() {
             height="315"
             src="https://www.youtube.com/embed/HeDDjL4HjsY?si=p9Nlj8QalSvf2NU0"
             title="YouTube video player"
-            frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             referrerpolicy="strict-origin-when-cross-origin"
             allowfullscreen
@@ -109,7 +116,11 @@ function ExtraInformationOrganisms() {
           to read you.
           <br />
           <div className="extra_information__work__button">
-            <button type="button" className="my__portafolio">
+            <button
+              type="button"
+              className="my__portafolio"
+              onClick={handleClickSurvey}
+            >
               <i className="fa fa-envelope-o"></i>
               <p>Send Message To Email</p>
             </button>

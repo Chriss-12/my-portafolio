@@ -1,21 +1,45 @@
 .presentation-card {
   width: 500px;
   margin: 0 auto;
-  border-radius: 10px;
+  border-radius: 15px;
   display: block;
   text-align: center;
   padding: 20px 10px;
+  border: 2px solid #167360;
 }
 
 .presentation-card--light {
-  background-color: #f5f0e8;
-  color: black;
-}
-
-.presentation-card--dark {
-  background-color: #313134;
+  background: linear-gradient(270deg, #2511b8, #bb3d17, #1daf92);
+  background-size: 600% 600%;
+  animation: gradientShift 8s ease infinite;
   color: white;
 }
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+/* .presentation-card--light {
+  background-color: #f5f0e8;
+  color: black;
+} */
+
+.presentation-card--dark {
+  background: linear-gradient(270deg, #7667e5ae, #b95739b9, #4fc2abbe);
+  background-size: 600% 600%;
+  animation: gradientShift 8s ease infinite;
+  color: white;
+}
+/* .presentation-card--dark {
+  background-color: #313134;
+  color: white;
+} */
 .presentation__container-person {
   margin-top: 40px;
   margin-bottom: 30px;

@@ -6,7 +6,7 @@ function PresentationMolecule() {
     <div className="presentation__container">
       <div className="presentation__container-person">
         <img src="images/person.png" alt="Imagen de persona" />
-        <a href="https://es.vecteezy.com/png-gratis/3d">3d PNGs por Vecteezy</a>
+        <a href="https://es.vecteezy.com/png-gratis/3d">3d PNGs by Vecteezy</a>
       </div>
       <div
         className={`presentation-card ${
