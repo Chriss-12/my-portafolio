@@ -2,15 +2,18 @@ import MyPortafolioController from "../../controllers/my_portafolio_controller";
 import "../../styles/main_page.css";
 function ExtraInformationOrganisms() {
   const myPortafolioController = MyPortafolioController();
+  const CV_URL =
+  "https://script.google.com/macros/s/AKfycbx-RR36HC8AsgZEbw3oVyqqFMiJfFDsTnyMlvxe4BRplWFzdxRPh5dLfPGyhh7hTRw/exec";
 
   const { handleClickSurvey, navigate } = myPortafolioController;
   return (
     <div className="extra_information__container">
       <div className="extra_information">
         <div className="about_me">
-          <p className="text--name">Cristhian Sanjines</p>
-          <p className="text--important">System Engineer</p>
-          <p className="text--extra">Full Stack Developer</p>
+          <p className="text--name">Cristhian Rodrigo</p>
+          <p className="text--name">Alave Sanjines</p>
+          <p className="text--important">Ingeniero de Sistemas</p>
+          <p className="text--extra">Full Stack Developer | Data Scientist | Pentesting</p>
           <p className="text--extra">React | Flutter | PenPot | UI/UX</p>
         </div>
         <img
@@ -22,10 +25,10 @@ function ExtraInformationOrganisms() {
       <div className="extra_information__work">
         <p className="main__title">Work</p>
         <p className="extra_information__statement">
-          I'm a freelancer and a full stack developer. I'm from Bolivia, and I
-          enjoy learning new skills and enhance others ones that I have. I am
-          planning and solve some different trouble in reality life using code.
-          Currently, I am living of my own product which is important to me.
+          Soy freelancer y desarrollador Full Stack. Soy de Bolivia y
+          disfruto aprendiendo nuevas habilidades y perfeccionando las que ya tengo.
+          Estoy planificando y resolviendo diversos problemas de la vida real mediante la programación y diferentes herramientas que he estado aprendiendo a lo largo de mi camino.
+          Actualmente, vivo de mi propio producto, que es muy importante para mí.
         </p>
       </div>
       <button
@@ -33,7 +36,7 @@ function ExtraInformationOrganisms() {
         className="my__portafolio"
         onClick={() => navigate("/works")}
       >
-        My Portafolio
+        Ver Portafolio
       </button>
 
       {/* Bio */}
@@ -41,16 +44,29 @@ function ExtraInformationOrganisms() {
         <p className="main__title">Bio</p>
         <div className="biograpy">
           <p>2001</p>
-          <p>Born in La Paz, Bolivia</p>
+          <p>Nacido en La Paz, Bolivia</p>
 
           <p>2022 - 2024</p>
-          <p>Profesors' Suport</p>
+          <p>Auxiliar de Docencia</p>
 
           <p>2024</p>
-          <p>Finished my Career at UMSA</p>
+          <p>Finalizacion de la carrera de Informatica</p>
 
           <p>2025</p>
-          <p>Working as Freelancer</p>
+          <p>Trabajando como Freelancer</p>
+        </div>
+
+        {/* Para el PDF */}
+        <div className="extra_information">
+          <a
+            href={CV_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="my__portafolio"
+          >
+            <i className="fa fa-file-pdf-o"></i>
+            <span>Ver CV</span>
+          </a>
         </div>
       </div>
 
@@ -58,7 +74,7 @@ function ExtraInformationOrganisms() {
       <div className="extra_information__work">
         <p className="main__title">I &#9825;</p>
         <p className="extra_information__statement">
-          Listening to Music, Playing, Photography, Deep Learning
+          Programacion Web y mobil, Machine Learning, Pentesting.
         </p>
       </div>
 
@@ -131,7 +147,7 @@ function ExtraInformationOrganisms() {
       {/* footer */}
       <footer>
         <p className="footer-text">
-          © 2025 Chriss Sanjines. All Rights Reserved.
+          © 2026 Chriss Sanjines. All Rights Reserved.
         </p>
       </footer>
     </div>

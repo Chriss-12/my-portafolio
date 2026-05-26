@@ -6,6 +6,9 @@ function NavBar() {
   const { swLight, handleSwLight } = useTheme();
   const { open, toggleMenu } = useMenuController();
   const { navigateNavBar } = NavBarController();
+  const CV_URL =
+  "https://script.google.com/macros/s/AKfycbx-RR36HC8AsgZEbw3oVyqqFMiJfFDsTnyMlvxe4BRplWFzdxRPh5dLfPGyhh7hTRw/exec";
+
   return (
     <nav className="main__nav-bar" style={{ zIndex: "100" }}>
       <div
@@ -27,7 +30,7 @@ function NavBar() {
           </li>
           <li>
             <a
-              href="https://drive.google.com/file/d/1gyyxnKaK_xnskFYLe1VKweJHxB3vp7e7/view"
+              href={CV_URL}
               target="_blank"
             >
               CV

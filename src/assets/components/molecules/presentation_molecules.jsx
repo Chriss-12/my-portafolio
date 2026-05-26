@@ -13,9 +13,9 @@ function PresentationMolecule() {
           swLight ? "presentation-card--light" : "presentation-card--dark"
         }`}
       >
-        <p>Hello, I'm a indie web and mobile application.</p>
+        <p>Hola! Soy un desarrollador Indie web y de aplicaciones mobiles.</p>
         <br />
-        <p>I'm Happy to see you here!</p>
+        <p>En un placer verte aqui!</p>
       </div>
     </div>
   );
