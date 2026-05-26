@@ -1,63 +1,92 @@
-.presentation-card {
-  width: 500px;
-  margin: 0 auto;
-  border-radius: 15px;
-  display: block;
-  text-align: center;
-  padding: 20px 10px;
-  border: 2px solid #167360;
-}
-
-.presentation-card--light {
-  background: linear-gradient(270deg, #2511b8, #bb3d17, #1daf92);
-  background-size: 600% 600%;
-  animation: gradientShift 8s ease infinite;
-  color: white;
-}
-@keyframes gradientShift {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-/* .presentation-card--light {
-  background-color: #f5f0e8;
-  color: black;
-} */
-
-.presentation-card--dark {
-  background: linear-gradient(270deg, #7667e5ae, #b95739b9, #4fc2abbe);
-  background-size: 600% 600%;
-  animation: gradientShift 8s ease infinite;
-  color: white;
-}
-/* .presentation-card--dark {
-  background-color: #313134;
-  color: white;
-} */
-.presentation__container-person {
-  margin-top: 40px;
-  margin-bottom: 30px;
+.presentation__container {
+  width: min(100%, 680px);
   display: flex;
   flex-direction: column;
   align-items: center;
-  img {
-    width: 250px;
-    height: 250px;
-  }
-  a {
-    color: rgba(128, 128, 128, 0.7);
-    font-size: 12px;
-  }
+}
+
+.presentation-card {
+  position: relative;
+  overflow: hidden;
+  width: min(540px, calc(100vw - 40px));
+  margin: 0 auto;
+  padding: 27px 30px;
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  color: #fff;
+  display: block;
+  text-align: left;
+  line-height: 1.6;
+  box-shadow: var(--shadow);
+}
+
+.presentation-card::after {
+  position: absolute;
+  width: 170px;
+  height: 170px;
+  top: -85px;
+  right: -50px;
+  content: "";
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.16);
+  filter: blur(1px);
+}
+
+.presentation-card p:first-child {
+  position: relative;
+  z-index: 1;
+  font-size: 18px;
+  font-weight: 650;
+}
+
+.presentation-card p:last-child {
+  position: relative;
+  z-index: 1;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.presentation-card--light {
+  background: linear-gradient(124deg, #087866 0%, #119575 46%, #146f97 100%);
+}
+
+.presentation-card--dark {
+  background:
+    radial-gradient(circle at 78% 8%, rgba(174, 191, 185, 0.24), transparent 34%),
+    linear-gradient(128deg, #0b100e 0%, #17231e 42%, #2d3834 100%);
+  border-color: rgba(53, 211, 141, 0.32);
+}
+
+.presentation__container-person {
+  margin-top: 32px;
+  margin-bottom: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.presentation__container-person img {
+  width: 245px;
+  height: 245px;
+  filter: drop-shadow(0 24px 22px rgba(9, 42, 34, 0.16));
+}
+
+.presentation__container-person a {
+  color: var(--muted);
+  font-size: 11px;
+  opacity: 0.78;
 }
 
 @media screen and (max-width: 761px) {
+  .presentation__container-person {
+    margin-top: 25px;
+  }
+
+  .presentation__container-person img {
+    width: 220px;
+    height: 220px;
+  }
+
   .presentation-card {
-    width: 70%;
+    padding: 22px;
   }
 }

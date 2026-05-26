@@ -80,7 +80,7 @@ function ExtraInformationOrganisms() {
 
       {/* On the Web */}
       <div className="extra_information__work">
-        <p className="main__title">On the Web</p>
+        <p className="main__title">Encuentrame En La WEB</p>
         <div className="love__things">
           <a className="love__things__item" href="https://github.com/Chriss-12">
             <i className="fa fa-github"></i>
@@ -116,8 +116,8 @@ function ExtraInformationOrganisms() {
             src="https://www.youtube.com/embed/HeDDjL4HjsY?si=p9Nlj8QalSvf2NU0"
             title="YouTube video player"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin"
-            allowfullscreen
+            referrerPolicy="strict-origin-when-cross-origin"
+            allowFullScreen
           ></iframe>
           <p>Teaching some Topics</p>
           <p>Growing up in YouTube</p>
@@ -126,10 +126,9 @@ function ExtraInformationOrganisms() {
 
       {/* Message */}
       <div className="extra_information__work">
-        <p className="main__title">Send me a message</p>
+        <p className="main__title">Enviame un correo</p>
         <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
-          Send me any message if you want to tell me something. I will be happy
-          to read you.
+          Enviame un correo si quieres hablar de algo conmigo. Estare encantado de leerte.
           <br />
           <div className="extra_information__work__button">
             <button

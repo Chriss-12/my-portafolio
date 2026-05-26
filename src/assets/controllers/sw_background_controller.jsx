@@ -9,8 +9,7 @@ export const ThemeProvider = ({ children }) => {
   }, [swLight]);
 
   const handleSwLight = () => {
-    setSwLight(!swLight);
-    console.log(swLight);
+    setSwLight((isLight) => !isLight);
   };
 
   return (
