@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import NavBarController from "../../controllers/nav_bar_controller";
 import useMenuController from "../../controllers/sw_show_menu";
 import { useTheme } from "../../controllers/useTheme";
@@ -29,14 +30,17 @@ const NAV_ITEMS = [
   },
 ];
 
-function NavLinks({ navigateNavBar }) {
+function NavLinks({ navigateNavBar, closeMenu }) {
   return NAV_ITEMS.map(({ label, icon, path, href, className }) => (
     <li key={label}>
       {path ? (
         <button
           type="button"
           className={`nav-link ${className}`}
-          onClick={() => navigateNavBar(path)}
+          onClick={() => {
+            navigateNavBar(path);
+            closeMenu();
+          }}
         >
           <i className={`fa ${icon}`} aria-hidden="true"></i>
           <span>{label}</span>
@@ -47,6 +51,7 @@ function NavLinks({ navigateNavBar }) {
           href={href}
           target="_blank"
           rel="noopener noreferrer"
+          onClick={closeMenu}
         >
           <i className={`fa ${icon}`} aria-hidden="true"></i>
           <span>{label}</span>
@@ -58,11 +63,49 @@ function NavLinks({ navigateNavBar }) {
 
 function NavBar() {
   const { swLight, handleSwLight } = useTheme();
-  const { open, toggleMenu } = useMenuController();
+  const { open, toggleMenu, closeMenu } = useMenuController();
+  const {
+    open: floatingOpen,
+    toggleMenu: toggleFloatingMenu,
+    closeMenu: closeFloatingMenu,
+  } = useMenuController();
   const { navigateNavBar } = NavBarController();
+  const navRef = useRef(null);
+
+  useEffect(() => {
+    if (!open && !floatingOpen) {
+      return undefined;
+    }
+
+    const closeOnOutsideClick = (event) => {
+      if (!navRef.current?.contains(event.target)) {
+        closeMenu();
+        closeFloatingMenu();
+      }
+    };
+
+    document.addEventListener("pointerdown", closeOnOutsideClick);
+
+    return () => document.removeEventListener("pointerdown", closeOnOutsideClick);
+  }, [open, floatingOpen, closeMenu, closeFloatingMenu]);
+
+  const closeMenus = () => {
+    closeMenu();
+    closeFloatingMenu();
+  };
+
+  const handleTopMenu = () => {
+    closeFloatingMenu();
+    toggleMenu();
+  };
+
+  const handleFloatingMenu = () => {
+    closeMenu();
+    toggleFloatingMenu();
+  };
 
   return (
-    <nav className="main__nav-bar">
+    <nav className="main__nav-bar" ref={navRef}>
       <div
         className={`nav-bar__first-list ${
           swLight ? "nav-bar__first-list--light" : "nav-bar__first-list--dark"
@@ -71,7 +114,10 @@ function NavBar() {
         <button
           type="button"
           className="brand-pill"
-          onClick={() => navigateNavBar("/")}
+          onClick={() => {
+            navigateNavBar("/");
+            closeMenus();
+          }}
           aria-label="Ir al inicio"
         >
           <span className="brand-pill__mark">
@@ -80,7 +126,7 @@ function NavBar() {
           <span>Chriss Sanjines</span>
         </button>
         <ul className="nav-bar__first-list-item">
-          <NavLinks navigateNavBar={navigateNavBar} />
+          <NavLinks navigateNavBar={navigateNavBar} closeMenu={closeMenus} />
         </ul>
         <div className="nav-actions">
           <button
@@ -90,7 +136,7 @@ function NavBar() {
             aria-label={swLight ? "Activar modo noche" : "Activar modo dia"}
           >
             <img
-              src={!swLight ? "images/sun.svg" : "images/moon.svg"}
+              src={!swLight ? "/images/sun.svg" : "/images/moon.svg"}
               alt=""
               className={!swLight ? "change-sw--light" : "change-sw--moon"}
             />
@@ -98,7 +144,7 @@ function NavBar() {
           <button
             type="button"
             className="menu-bar"
-            onClick={toggleMenu}
+            onClick={handleTopMenu}
             aria-label="Abrir menu"
             aria-expanded={open}
           >
@@ -113,9 +159,28 @@ function NavBar() {
         style={{ display: open ? "block" : "none" }}
       >
         <ul className="nav-bar__second-list">
-          <NavLinks navigateNavBar={navigateNavBar} />
+          <NavLinks navigateNavBar={navigateNavBar} closeMenu={closeMenus} />
         </ul>
       </div>
+      <div
+        className={`floating-nav__menu ${swLight ? "nav-bar-white" : "nav-bar-black"} ${
+          floatingOpen ? "floating-nav__menu--open" : ""
+        }`}
+      >
+        <p className="floating-nav__label">Navegacion</p>
+        <ul className="nav-bar__second-list">
+          <NavLinks navigateNavBar={navigateNavBar} closeMenu={closeMenus} />
+        </ul>
+      </div>
+      <button
+        type="button"
+        className={`floating-nav__button ${floatingOpen ? "floating-nav__button--open" : ""}`}
+        onClick={handleFloatingMenu}
+        aria-label={floatingOpen ? "Cerrar menu rapido" : "Abrir menu rapido"}
+        aria-expanded={floatingOpen}
+      >
+        <i className={`fa ${floatingOpen ? "fa-times" : "fa-th-large"}`} aria-hidden="true"></i>
+      </button>
     </nav>
   );
 }

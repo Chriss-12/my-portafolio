@@ -31,14 +31,6 @@ function ExtraInformationOrganisms() {
           Actualmente, vivo de mi propio producto, que es muy importante para mí.
         </p>
       </div>
-      <button
-        type="button"
-        className="my__portafolio"
-        onClick={() => navigate("/works")}
-      >
-        Ver Portafolio
-      </button>
-
       {/* Bio */}
       <div className="extra_information__work">
         <p className="main__title">Bio</p>
@@ -56,8 +48,15 @@ function ExtraInformationOrganisms() {
           <p>Trabajando como Freelancer</p>
         </div>
 
-        {/* Para el PDF */}
-        <div className="extra_information">
+        <div className="bio-actions">
+          <button
+            type="button"
+            className="my__portafolio"
+            onClick={() => navigate("/works")}
+          >
+            <i className="fa fa-briefcase"></i>
+            <span>Ver Portafolio</span>
+          </button>
           <a
             href={CV_URL}
             target="_blank"
