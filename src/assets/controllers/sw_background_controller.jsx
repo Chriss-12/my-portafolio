@@ -1,11 +1,19 @@
-import { useEffect, useState } from "react";
+import { useLayoutEffect, useState } from "react";
 import { ThemeContext } from "./theme_context";
 
-export const ThemeProvider = ({ children }) => {
-  const [swLight, setSwLight] = useState(true);
+const THEME_STORAGE_KEY = "portfolio-theme";
 
-  useEffect(() => {
-    document.body.className = swLight ? "body--light" : "body--dark";
+export const ThemeProvider = ({ children }) => {
+  const [swLight, setSwLight] = useState(
+    () => localStorage.getItem(THEME_STORAGE_KEY) === "light"
+  );
+
+  useLayoutEffect(() => {
+    const theme = swLight ? "light" : "dark";
+
+    document.body.className = `body--${theme}`;
+    document.documentElement.style.colorScheme = theme;
+    localStorage.setItem(THEME_STORAGE_KEY, theme);
   }, [swLight]);
 
   const handleSwLight = () => {

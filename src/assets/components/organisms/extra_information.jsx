@@ -23,7 +23,7 @@ function ExtraInformationOrganisms() {
         />
       </div>
       <div className="extra_information__work">
-        <p className="main__title">Work</p>
+        <p className="main__title">Quien soy?</p>
         <p className="extra_information__statement">
           Soy freelancer y desarrollador Full Stack. Soy de Bolivia y
           disfruto aprendiendo nuevas habilidades y perfeccionando las que ya tengo.
