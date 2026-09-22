@@ -1,48 +1,52 @@
 import "../../styles/work_molecule.css";
 
-const dateFormatter = new Intl.DateTimeFormat("es-BO", {
-  month: "short",
+const yearFormatter = new Intl.DateTimeFormat("es-BO", {
   year: "numeric",
 });
 
 function WorkMolecule({
   url,
   title,
-  category,
+  kind,
   date,
   description,
   technologies,
-  icon,
   accent,
+  index,
 }) {
-  return (
-    <article className={`work-card work-card--${accent}`}>
-      <div className="work-card__visual">
-        <div className="work-card__icon">
-          <i className={`fa ${icon}`} aria-hidden="true"></i>
-        </div>
-        <p className="work-card__category">{category}</p>
-        <time dateTime={date}>{dateFormatter.format(new Date(`${date}T00:00:00`))}</time>
-      </div>
+  const projectDate = new Date(`${date}T00:00:00`);
 
-      <div className="work-card__body">
-        <h2>{title}</h2>
-        <p className="work-card__description">{description}</p>
-        <ul className="work-card__technologies" aria-label="Tecnologias">
+  return (
+    <article className={`project-card project-card--${accent}`}>
+      <header className="project-card__header">
+        <span className="project-card__number" aria-hidden="true">
+          {String(index).padStart(2, "0")}
+        </span>
+        <div>
+          <p className="project-card__kind">{kind}</p>
+          <h3>{title}</h3>
+        </div>
+        <time dateTime={date}>{yearFormatter.format(projectDate)}</time>
+      </header>
+
+      <p className="project-card__description">{description}</p>
+
+      <footer className="project-card__footer">
+        <ul aria-label="Tecnologías utilizadas">
           {technologies.map((technology) => (
             <li key={technology}>{technology}</li>
           ))}
         </ul>
-      </div>
 
-      {url ? (
-        <a className="work-card__action" href={url} target="_blank" rel="noopener noreferrer">
-          Ver proyecto
-          <i className="fa fa-arrow-right" aria-hidden="true"></i>
-        </a>
-      ) : (
-        <span className="work-card__action work-card__action--pending">Caso en preparacion</span>
-      )}
+        {url ? (
+          <a href={url} target="_blank" rel="noopener noreferrer">
+            Ver proyecto
+            <i className="fa fa-arrow-right" aria-hidden="true"></i>
+          </a>
+        ) : (
+          <span className="project-card__status">Caso en preparación</span>
+        )}
+      </footer>
     </article>
   );
 }

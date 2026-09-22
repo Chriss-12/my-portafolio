@@ -2,10 +2,11 @@ import { useEffect, useRef } from "react";
 import NavBarController from "../../controllers/nav_bar_controller";
 import useMenuController from "../../controllers/sw_show_menu";
 import { useTheme } from "../../controllers/useTheme";
+import { QuickLinks } from "../../../data/links";
 import "../../styles/main_nav_bar.css";
 
-const CV_URL =
-  "https://script.google.com/macros/s/AKfycbx-RR36HC8AsgZEbw3oVyqqFMiJfFDsTnyMlvxe4BRplWFzdxRPh5dLfPGyhh7hTRw/exec";
+
+const CV_URL = QuickLinks.drive.cv;
 
 const NAV_ITEMS = [
   { label: "Works", icon: "fa-briefcase", path: "/works", className: "nav-link--works" },
@@ -42,7 +43,7 @@ function NavLinks({ navigateNavBar, closeMenu }) {
             closeMenu();
           }}
         >
-          <i className={`fa ${icon}`} aria-hidden="true"></i>
+          <i className={`fa ${icon}`} aria-hidden="true" style={{ paddingTop: "5px" }}></i>
           <span>{label}</span>
         </button>
       ) : (
@@ -53,7 +54,7 @@ function NavLinks({ navigateNavBar, closeMenu }) {
           rel="noopener noreferrer"
           onClick={closeMenu}
         >
-          <i className={`fa ${icon}`} aria-hidden="true"></i>
+          <i className={`fa ${icon}`} aria-hidden="true" style={{ paddingTop: "5px" }}></i>
           <span>{label}</span>
         </a>
       )}

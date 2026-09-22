@@ -1,9 +1,9 @@
+import { QuickLinks } from "../../../data/links";
 import MyPortafolioController from "../../controllers/my_portafolio_controller";
 import "../../styles/main_page.css";
 function ExtraInformationOrganisms() {
   const myPortafolioController = MyPortafolioController();
-  const CV_URL =
-  "https://script.google.com/macros/s/AKfycbx-RR36HC8AsgZEbw3oVyqqFMiJfFDsTnyMlvxe4BRplWFzdxRPh5dLfPGyhh7hTRw/exec";
+  const CV_URL = QuickLinks.drive.cv;
 
   const { handleClickSurvey, navigate } = myPortafolioController;
   return (

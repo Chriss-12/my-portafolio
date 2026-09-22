@@ -11,25 +11,50 @@
   width: min(540px, calc(100vw - 40px));
   margin: 0 auto;
   padding: 27px 30px;
-  border: 1px solid var(--border);
+  border: 1px solid rgba(255, 255, 255, 0.22);
   border-radius: 24px;
   color: #fff;
   display: block;
   text-align: left;
   line-height: 1.6;
-  box-shadow: var(--shadow);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.05),
+    0 22px 54px rgba(3, 11, 24, 0.22);
+  -webkit-backdrop-filter: blur(24px) saturate(145%);
+  backdrop-filter: blur(24px) saturate(145%);
+}
+
+.presentation-card::before {
+  position: absolute;
+  inset: 0;
+  content: "";
+  background: linear-gradient(
+    112deg,
+    rgba(255, 255, 255, 0.16) 0%,
+    rgba(255, 255, 255, 0.04) 34%,
+    transparent 52%,
+    rgba(255, 255, 255, 0.06) 100%
+  );
+  pointer-events: none;
 }
 
 .presentation-card::after {
   position: absolute;
-  width: 170px;
-  height: 170px;
-  top: -85px;
-  right: -50px;
-  content: "";
+  top: -88px;
+  right: -28px;
+  width: 220px;
+  height: 180px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.16);
-  filter: blur(1px);
+  background: radial-gradient(
+    circle at 42% 62%,
+    rgba(255, 255, 255, 0.25),
+    rgba(255, 255, 255, 0.08) 42%,
+    transparent 68%
+  );
+  content: "";
+  filter: blur(2px);
+  pointer-events: none;
 }
 
 .presentation-card p:first-child {
@@ -46,14 +71,26 @@
 }
 
 .presentation-card--light {
-  background: linear-gradient(124deg, #087866 0%, #119575 46%, #146f97 100%);
+  border-color: rgba(255, 255, 255, 0.72);
+  background:
+    linear-gradient(132deg, rgba(255, 255, 255, 0.68), rgba(226, 240, 255, 0.38)),
+    rgba(255, 255, 255, 0.22);
+  color: var(--heading);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.95),
+    inset 0 -1px 0 rgba(37, 99, 235, 0.08),
+    0 22px 52px rgba(37, 99, 235, 0.12);
+}
+
+.presentation-card--light p:last-child {
+  color: var(--muted);
 }
 
 .presentation-card--dark {
   background:
-    radial-gradient(circle at 78% 8%, rgba(174, 191, 185, 0.24), transparent 34%),
-    linear-gradient(128deg, #0b100e 0%, #17231e 42%, #2d3834 100%);
-  border-color: rgba(53, 211, 141, 0.32);
+    linear-gradient(132deg, rgba(255, 255, 255, 0.075), rgba(96, 165, 250, 0.045)),
+    rgba(8, 18, 34, 0.42);
+  border-color: rgba(148, 203, 255, 0.24);
 }
 
 .presentation__container-person {
