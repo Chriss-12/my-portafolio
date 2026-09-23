@@ -98,10 +98,11 @@ function PresentationMolecule() {
         </div>
         <p className="palette-dialog__note">{copy.palette.note}</p>
       </dialog>
+
       <section
-        className={`presentation-card presentation-card--full ${
-          swLight ? "presentation-card--light" : "presentation-card--dark"
-        }`}
+        className={`presentation-card presentation-card--full ${swLight ? "presentation-card--light" : "presentation-card--dark"
+          }`}
+        style={{ marginTop: "15px" }}
       >
         <p className="presentation-card__eyebrow">{copy.presentation.eyebrow}</p>
         <h2>{copy.presentation.headline}</h2>
