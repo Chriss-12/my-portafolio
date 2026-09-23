@@ -1,13 +1,15 @@
 import { useNavigate } from "react-router-dom";
+import { useLanguage } from "./useLanguage";
 
 function MyPortafolioController() {
   /* To show portafolio part */
   const navigate = useNavigate();
+  const { language } = useLanguage();
 
   /* To send an email */
   const email = "chrisstercero@gmail.com";
-  const subject = "Pregunto por...";
-  const body = "Estoy interesado en...";
+  const subject = language === "es" ? "Hola, Cristhian" : "Hello, Cristhian";
+  const body = language === "es" ? "Quisiera conversar sobre..." : "I'd like to talk about...";
 
   const handleClickSurvey = () => {
     const subjectEncoded = encodeURIComponent(subject);

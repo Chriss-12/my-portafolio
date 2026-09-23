@@ -123,6 +123,36 @@ body::before {
   color: var(--heading);
 }
 
+/* Paleta alternativa: conserva las superficies y la escala del sitio. */
+body.palette--lantern.body--light {
+  --accent: #0b6135;
+  --accent-strong: #084a2a;
+  --accent-secondary: #436f46;
+  --accent-soft: rgba(11, 97, 53, 0.1);
+  --surface: rgba(255, 255, 255, 0.78);
+  --border: rgba(13, 68, 39, 0.15);
+  background:
+    radial-gradient(circle at 83% 9%, rgba(52, 125, 73, 0.1), transparent 31%),
+    radial-gradient(circle at 11% 21%, rgba(11, 89, 50, 0.06), transparent 29%),
+    linear-gradient(135deg, #f8faf8 0%, #eff4ef 52%, #e8eee9 100%);
+}
+
+body.palette--lantern.body--dark {
+  --accent: #79c795;
+  --accent-strong: #125b34;
+  --accent-secondary: #9bc5a3;
+  --accent-soft: rgba(87, 171, 112, 0.11);
+  --surface: rgba(13, 27, 18, 0.82);
+  --surface-strong: #101c14;
+  --border: rgba(106, 160, 119, 0.18);
+  --muted: #a3b6a8;
+  --heading: #f2f8f3;
+  background:
+    radial-gradient(circle at 16% 8%, rgba(29, 106, 58, 0.12), transparent 33%),
+    radial-gradient(circle at 88% 22%, rgba(53, 118, 71, 0.06), transparent 30%),
+    linear-gradient(140deg, #060e09 0%, #0a1510 49%, #101a13 100%);
+}
+
 /* LINKS */
 a {
   text-decoration: none;

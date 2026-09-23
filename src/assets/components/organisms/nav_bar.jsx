@@ -3,6 +3,7 @@ import NavBarController from "../../controllers/nav_bar_controller";
 import useMenuController from "../../controllers/sw_show_menu";
 import { useTheme } from "../../controllers/useTheme";
 import { QuickLinks } from "../../../data/links";
+import { useLanguage } from "../../controllers/useLanguage";
 import "../../styles/main_nav_bar.css";
 
 
@@ -31,7 +32,7 @@ const NAV_ITEMS = [
   },
 ];
 
-function NavLinks({ navigateNavBar, closeMenu }) {
+function NavLinks({ navigateNavBar, closeMenu, copy }) {
   return NAV_ITEMS.map(({ label, icon, path, href, className }) => (
     <li key={label}>
       {path ? (
@@ -44,7 +45,7 @@ function NavLinks({ navigateNavBar, closeMenu }) {
           }}
         >
           <i className={`fa ${icon}`} aria-hidden="true" style={{ paddingTop: "5px" }}></i>
-          <span>{label}</span>
+          <span>{label === "Works" ? copy.nav.works : label}</span>
         </button>
       ) : (
         <a
@@ -64,6 +65,7 @@ function NavLinks({ navigateNavBar, closeMenu }) {
 
 function NavBar() {
   const { swLight, handleSwLight } = useTheme();
+  const { language, changeLanguage, copy } = useLanguage();
   const { open, toggleMenu, closeMenu } = useMenuController();
   const {
     open: floatingOpen,
@@ -119,34 +121,42 @@ function NavBar() {
             navigateNavBar("/");
             closeMenus();
           }}
-          aria-label="Ir al inicio"
+          aria-label={copy.nav.home}
         >
           <span className="brand-pill__mark">
             <i className="fa fa-code" aria-hidden="true"></i>
           </span>
-          <span>Chriss Sanjines</span>
+          <span className="brand-pill__name">Chriss <span className="brand-pill__surname">Sanjines</span></span>
         </button>
         <ul className="nav-bar__first-list-item">
-          <NavLinks navigateNavBar={navigateNavBar} closeMenu={closeMenus} />
+          <NavLinks navigateNavBar={navigateNavBar} closeMenu={closeMenus} copy={copy} />
         </ul>
         <div className="nav-actions">
           <button
             type="button"
-            className="theme-toggle"
+            className="language-toggle"
+            onClick={() => changeLanguage(language === "es" ? "en" : "es")}
+            aria-label={copy.nav.languageSwitch}
+            title={copy.nav.languageSwitch}
+          >
+            {language === "es" ? "EN" : "ES"}
+          </button>
+          <button
+            type="button"
+            className={`theme-toggle ${swLight ? "theme-toggle--light" : "theme-toggle--dark"}`}
             onClick={handleSwLight}
-            aria-label={swLight ? "Activar modo noche" : "Activar modo dia"}
+            aria-label={swLight ? copy.nav.dark : copy.nav.light}
           >
             <img
-              src={!swLight ? "/images/sun.svg" : "/images/moon.svg"}
+              src={swLight ? "/images/sun.svg" : "/images/moon.svg"}
               alt=""
-              className={!swLight ? "change-sw--light" : "change-sw--moon"}
             />
           </button>
           <button
             type="button"
             className="menu-bar"
             onClick={handleTopMenu}
-            aria-label="Abrir menu"
+            aria-label={copy.nav.openMenu}
             aria-expanded={open}
           >
             <i className="fa fa-bars" aria-hidden="true"></i>
@@ -160,7 +170,7 @@ function NavBar() {
         style={{ display: open ? "block" : "none" }}
       >
         <ul className="nav-bar__second-list">
-          <NavLinks navigateNavBar={navigateNavBar} closeMenu={closeMenus} />
+          <NavLinks navigateNavBar={navigateNavBar} closeMenu={closeMenus} copy={copy} />
         </ul>
       </div>
       <div
@@ -168,16 +178,16 @@ function NavBar() {
           floatingOpen ? "floating-nav__menu--open" : ""
         }`}
       >
-        <p className="floating-nav__label">Navegacion</p>
+        <p className="floating-nav__label">{copy.nav.navigation}</p>
         <ul className="nav-bar__second-list">
-          <NavLinks navigateNavBar={navigateNavBar} closeMenu={closeMenus} />
+          <NavLinks navigateNavBar={navigateNavBar} closeMenu={closeMenus} copy={copy} />
         </ul>
       </div>
       <button
         type="button"
         className={`floating-nav__button ${floatingOpen ? "floating-nav__button--open" : ""}`}
         onClick={handleFloatingMenu}
-        aria-label={floatingOpen ? "Cerrar menu rapido" : "Abrir menu rapido"}
+        aria-label={floatingOpen ? copy.nav.quickClose : copy.nav.quickOpen}
         aria-expanded={floatingOpen}
       >
         <i className={`fa ${floatingOpen ? "fa-times" : "fa-th-large"}`} aria-hidden="true"></i>
