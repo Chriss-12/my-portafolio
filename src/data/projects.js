@@ -1,23 +1,12 @@
 export const PROJECTS = [
   {
-    title: "Budget Flow",
-    kind: "Producto independiente",
-    category: "Full Stack",
-    date: "2026-04-12",
-    description:
-      "Una forma más clara de planificar el dinero, seguir objetivos y entender en qué se va el presupuesto.",
-    technologies: ["React", "Laravel", "Charts"],
-    accent: "cobalt",
-    image: "/images/projects/budget-flow.svg",
-  },
-  {
     title: "MichiDoro",
     kind: "Aplicación de productividad",
     category: "Desarrollo móvil",
     date: "2026-09-08",
     description:
       "Una app Android para organizar tareas y rutinas alrededor de sesiones Pomodoro. Reúne el enfoque diario y la planificación semanal en un mismo lugar.",
-    technologies: ["Flutter", "Clean Architecture", "SQL lite"],
+    technologies: ["Flutter", "Clean Architecture", "SQLite"],
     highlights: ["Pomodoro", "Tareas y rutinas", "Planificación"],
     accent: "teal",
     gallery: [
@@ -31,36 +20,17 @@ export const PROJECTS = [
     esOpenSource: "true",
   },
   {
-    title: "Vision Classifier",
-    kind: "Exploración técnica",
+    title: "SmartLife",
+    kind: "Proyecto académico de minería de datos",
     category: "Machine Learning",
-    date: "2025-12-22",
+    date: "2026",
     description:
-      "Un experimento para recorrer el proceso completo de entrenar, medir y revisar un clasificador visual.",
-    technologies: ["Python", "TensorFlow", "Pandas"],
+      "Un caso de comercio electrónico que reúne predicción de compra, segmentación de clientes y recomendaciones de productos en un mismo análisis.",
+    technologies: ["Python", "pandas", "scikit-learn"],
+    highlights: ["Predicción", "Segmentación", "Recomendaciones"],
     accent: "violet",
-    image: "/images/projects/vision-classifier.svg",
-  },
-  {
-    title: "Portfolio Studio",
-    kind: "Identidad digital",
-    category: "Frontend",
-    date: "2025-09-18",
-    description:
-      "Este sitio: un espacio propio para ordenar mi trabajo, cuidar los detalles y seguir mejorando cómo lo cuento.",
-    technologies: ["React", "Vite", "CSS"],
-    accent: "teal",
-    image: "/images/projects/portfolio-studio.svg",
-  },
-  {
-    title: "Surface Audit",
-    kind: "Seguridad aplicada",
-    category: "Pentesting",
-    date: "2025-07-14",
-    description:
-      "Una práctica de análisis defensivo para reconocer superficies expuestas y documentar hallazgos con claridad.",
-    technologies: ["OWASP", "Linux", "Burp Suite"],
-    accent: "coral",
-    image: "/images/projects/surface-audit.svg",
+    previewType: "analysis",
+    caseStudyPath: "/works/mineria-de-datos",
+    url: "https://github.com/Chriss-12/Mineria-de-datos",
   },
 ];

@@ -55,6 +55,10 @@ export const translations = {
       galleryRole: "carrusel", galleryOf: "de",
       previousImage: "Ver captura anterior", nextImage: "Ver siguiente captura",
       view: "Ver proyecto",
+      repository: "Ver repositorio", exploreAnalysis: "Explorar análisis",
+      academicCase: "caso académico", analysisPreviewLabel: "Resumen de las tres partes del análisis",
+      analysisStages: ["Predecir compras", "Conocer clientes", "Recomendar productos"],
+      analysisFootnote: "Un análisis, tres preguntas de negocio",
     },
     categories: {
       "Full Stack": "Full Stack", "Desarrollo móvil": "Desarrollo móvil",
@@ -117,6 +121,10 @@ export const translations = {
       galleryRole: "carousel", galleryOf: "of",
       previousImage: "Previous screenshot", nextImage: "Next screenshot",
       view: "View project",
+      repository: "View repository", exploreAnalysis: "Explore analysis",
+      academicCase: "academic case study", analysisPreviewLabel: "Overview of the three parts of the analysis",
+      analysisStages: ["Predict purchases", "Understand customers", "Recommend products"],
+      analysisFootnote: "One analysis, three business questions",
     },
     categories: {
       "Full Stack": "Full Stack", "Desarrollo móvil": "Mobile development",
@@ -126,15 +134,11 @@ export const translations = {
 };
 
 export const projectTranslations = {
-  "Budget Flow": {
-    kind: "Independent product",
-    description: "A clearer way to plan spending, track goals, and understand where the budget goes.",
-  },
   MichiDoro: {
     kind: "Productivity app",
     description: "An Android app for organizing tasks and routines around Pomodoro sessions, bringing daily focus and weekly planning into one place.",
     highlights: ["Pomodoro", "Tasks & routines", "Planning"],
-    technologies: ["Flutter", "Clean Architecture", "SQL lite"],
+    technologies: ["Flutter", "Clean Architecture", "SQLite"],
     gallery: [
       { label: "Home", alt: "MichiDoro home screen showing energy level and task summary" },
       { label: "Tasks", alt: "Create a task with a goal and duration" },
@@ -143,16 +147,50 @@ export const projectTranslations = {
       { label: "Week", alt: "Weekly schedule with activities by time" },
     ],
   },
-  "Vision Classifier": {
-    kind: "Technical exploration",
-    description: "An experiment covering the full process of training, measuring, and reviewing a visual classifier.",
+  SmartLife: {
+    kind: "Academic data mining project",
+    description: "An e-commerce case study combining purchase prediction, customer segmentation, and product recommendations in one analysis.",
+    highlights: ["Prediction", "Segmentation", "Recommendations"],
   },
-  "Portfolio Studio": {
-    kind: "Digital identity",
-    description: "This site: a personal space to organize my work, refine the details, and improve how I tell its story.",
+};
+
+export const smartLifeStudy = {
+  es: {
+    back: "Volver a proyectos",
+    eyebrow: "Minería de datos · proyecto final",
+    title: "Una lectura más clara de los clientes de SmartLife",
+    intro: "Un caso académico de comercio electrónico que explora tres preguntas: quién podría comprar, qué perfiles de clientes existen y qué productos podrían interesarles.",
+    overviewLabel: "El proyecto en breve",
+    overview: "El notebook recorre el problema, la revisión y preparación de datos, el análisis exploratorio, los modelos y la interpretación de resultados. Esta página resume el recorrido; el trabajo completo está en el repositorio.",
+    stagesLabel: "Tres preguntas, un análisis",
+    stages: [
+      { number: "01", title: "¿Quién podría volver a comprar?", text: "Se comparan modelos de clasificación para estimar compras en los próximos 30 días. El notebook explica por qué identificar compradores importa más que mirar únicamente la exactitud global." },
+      { number: "02", title: "¿Qué clientes tenemos?", text: "El comportamiento de los usuarios se organiza en tres perfiles: exploradores, frecuentes de alto valor y ocasionales. Cada grupo se interpreta a partir de actividad, compras e intereses." },
+      { number: "03", title: "¿Qué productos mostrar?", text: "Se construye un top de recomendaciones por usuario a partir de sus interacciones con categorías y subcategorías, junto con la popularidad y novedad de los productos." },
+    ],
+    methodLabel: "Del dato a la decisión",
+    method: "Python, pandas y scikit-learn sostienen un flujo que incluye limpieza de datos, exploración, clasificación, agrupamiento e interpretación. El modelo predictivo tiene límites; sus resultados no deberían ser la única base de una decisión real.",
+    sourceLabel: "Explora el trabajo completo",
+    source: "Puedes consultar el repositorio que compartiste. El notebook usa archivos desde Google Drive, por lo que ejecutarlo por cuenta propia requiere disponer también de esos datos.",
+    repository: "Abrir repositorio en GitHub",
   },
-  "Surface Audit": {
-    kind: "Applied security",
-    description: "A defensive analysis exercise to identify exposed surfaces and document findings clearly.",
+  en: {
+    back: "Back to projects",
+    eyebrow: "Data mining · final project",
+    title: "A clearer view of SmartLife customers",
+    intro: "An academic e-commerce case study exploring three questions: who might buy, what customer groups exist, and which products may interest them.",
+    overviewLabel: "The project at a glance",
+    overview: "The notebook covers the problem, data review and preparation, exploratory analysis, models, and interpretation. This page summarizes the journey; the full work is in the repository.",
+    stagesLabel: "Three questions, one analysis",
+    stages: [
+      { number: "01", title: "Who might buy again?", text: "Classification models are compared to estimate purchases within the next 30 days. The notebook explains why finding actual buyers matters more than overall accuracy alone." },
+      { number: "02", title: "Who are the customers?", text: "User behavior is organized into three profiles: explorers, frequent high-value customers, and occasional customers. Each group is interpreted through activity, purchases, and interests." },
+      { number: "03", title: "Which products should be shown?", text: "A top list of recommendations is built for each user from their interactions with categories and subcategories, alongside product popularity and novelty." },
+    ],
+    methodLabel: "From data to decisions",
+    method: "Python, pandas, and scikit-learn support a workflow of data cleaning, exploration, classification, clustering, and interpretation. The predictive model has limitations; its results should not be the sole basis for a real decision.",
+    sourceLabel: "Explore the complete work",
+    source: "You can browse the repository you shared. The notebook reads files from Google Drive, so running it independently also requires access to those datasets.",
+    repository: "Open repository on GitHub",
   },
 };
