@@ -34,6 +34,8 @@ function MyWorksOrganism() {
         translated?.description ?? "",
         copy.categories[project.category] ?? "",
         ...project.technologies,
+        ...(project.highlights ?? []),
+        ...(translated?.highlights ?? []),
       ].join(" "),
     );
 

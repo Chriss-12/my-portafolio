@@ -330,6 +330,112 @@
   object-fit: cover;
 }
 
+.project-card__preview--gallery {
+  height: 264px;
+  aspect-ratio: auto;
+  background: var(--surface-strong);
+}
+
+.project-gallery {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-gallery__viewport {
+  min-height: 0;
+  flex: 1;
+  overflow: hidden;
+}
+
+.project-gallery__track {
+  height: 100%;
+  display: flex;
+  touch-action: pan-y pinch-zoom;
+}
+
+.project-gallery__slide {
+  position: relative;
+  min-width: 0;
+  height: 100%;
+  flex: 0 0 100%;
+  overflow: hidden;
+  padding-right: 14%;
+  background: linear-gradient(135deg, #e4eee5, #f1f4e7 64%, #dce9cc);
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+.project-gallery__caption {
+  position: absolute;
+  left: 20px;
+  bottom: 100px;
+  max-width: 42%;
+  color: #28533a;
+  font-size: 19px;
+  font-weight: 750;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+}
+
+.project-card__preview--gallery .project-gallery__slide img {
+  width: auto;
+  height: 96%;
+  max-width: none;
+  object-fit: contain;
+  filter: drop-shadow(0 6px 11px rgba(21, 49, 34, 0.18));
+  user-select: none;
+}
+
+.project-gallery__controls {
+  min-height: 43px;
+  padding: 0 8px 0 16px;
+  border-top: 1px solid var(--border);
+  background: var(--surface-strong);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.project-gallery__count {
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 750;
+  letter-spacing: 0.07em;
+}
+
+.project-gallery__arrows {
+  display: flex;
+  gap: 4px;
+}
+
+.project-gallery__arrows button {
+  width: 34px;
+  height: 32px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--heading);
+  cursor: pointer;
+  transition: background 0.18s ease, color 0.18s ease;
+}
+
+.project-gallery__arrows button:not(:disabled):hover {
+  background: var(--accent-soft);
+  color: var(--project-accent);
+}
+
+.project-gallery__arrows button:disabled {
+  opacity: 0.28;
+  cursor: not-allowed;
+}
+
+.project-gallery__arrows button:focus-visible {
+  outline: 2px solid var(--project-accent);
+  outline-offset: 2px;
+}
+
 .project-card__description {
   margin: 16px 0 20px;
   color: var(--muted);
@@ -444,6 +550,10 @@
     padding: 19px 18px;
   }
 
+  .project-card__preview--gallery {
+    height: 250px;
+  }
+
   .project-card__description,
   .project-card__footer {
     margin-left: 0;
@@ -456,7 +566,8 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .project-card {
+  .project-card,
+  .project-gallery__arrows button {
     transition: none;
   }
 }

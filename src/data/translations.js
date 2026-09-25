@@ -51,6 +51,9 @@ export const translations = {
       recent: "Trabajo reciente", project: "proyecto", projects: "proyectos",
       empty: "No encontré proyectos con esos filtros.", reset: "Ver todos los proyectos",
       closing: "Más proyectos muy pronto.", technologies: "Tecnologías utilizadas",
+      highlights: "Funciones destacadas", gallery: "Capturas de la aplicación",
+      galleryRole: "carrusel", galleryOf: "de",
+      previousImage: "Ver captura anterior", nextImage: "Ver siguiente captura",
       view: "Ver proyecto",
     },
     categories: {
@@ -110,6 +113,9 @@ export const translations = {
       recent: "Recent work", project: "project", projects: "projects",
       empty: "No projects match those filters.", reset: "View all projects",
       closing: "More projects coming soon.", technologies: "Technologies used",
+      highlights: "Key features", gallery: "App screenshots",
+      galleryRole: "carousel", galleryOf: "of",
+      previousImage: "Previous screenshot", nextImage: "Next screenshot",
       view: "View project",
     },
     categories: {
@@ -124,9 +130,18 @@ export const projectTranslations = {
     kind: "Independent product",
     description: "A clearer way to plan spending, track goals, and understand where the budget goes.",
   },
-  "Focus Mobile": {
-    kind: "Personal tool",
-    description: "Routines, progress, and reminders in a mobile app designed for everyday use.",
+  MichiDoro: {
+    kind: "Productivity app",
+    description: "An Android app for organizing tasks and routines around Pomodoro sessions, bringing daily focus and weekly planning into one place.",
+    highlights: ["Pomodoro", "Tasks & routines", "Planning"],
+    technologies: ["Flutter", "Clean Architecture", "SQL lite"],
+    gallery: [
+      { label: "Home", alt: "MichiDoro home screen showing energy level and task summary" },
+      { label: "Tasks", alt: "Create a task with a goal and duration" },
+      { label: "Routines", alt: "List of scheduled active routines" },
+      { label: "Focus", alt: "25-minute Pomodoro focus timer" },
+      { label: "Week", alt: "Weekly schedule with activities by time" },
+    ],
   },
   "Vision Classifier": {
     kind: "Technical exploration",
